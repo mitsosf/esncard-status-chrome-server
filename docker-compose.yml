@@ -1,0 +1,8 @@
+version: '3'
+services:
+  web:
+    container_name: esncard-status-chrome-server
+    image: esncard-status-chrome-server:latest
+    restart: "always"
+    ports:
+      - "3000:3000"
