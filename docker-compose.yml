@@ -5,4 +5,4 @@ services:
     image: esncard-status-chrome-server:latest
     restart: "always"
     ports:
-      - "3000:3000"
+      - "3100:3000"
