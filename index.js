@@ -3,8 +3,12 @@ const app = express()
 const axios = require('axios')
 const cors = require('cors')
 
-app.get('/:esncard', cors(), (req, res, next) => {
-    axios.get('https://esncard.org/services/1.0/card.json?code=' + req.params.esncard)
+app.get('/', cors(), (req, res, next) => {
+    if (req.query.esncard === undefined || req.query.esncard === '') {
+        res.json({msg: 'Invalid Request', data: undefined, error: 404})
+    }
+
+    axios.get('https://esncard.org/services/1.0/card.json?code=' + req.query.esncard)
         .then(result => {
             let data = result.data[0]
             console.log(data)
